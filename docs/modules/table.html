@@ -9,7 +9,7 @@
   <script>
   ;!function(){self!==parent&&(location.href="//www.baidu.com/")}();
   </script>
-  <link href="../../layui/v/2.7.3/css/layui.css" rel="stylesheet">
+  <link href="../../layui/v/2.7.4/css/layui.css" rel="stylesheet">
   <link href="../../static/css/global.css" rel="stylesheet">
 </head>
 <body>
@@ -2012,12 +2012,16 @@ table.on('tool(test)', function(obj){ // 注：test 是 table 原始标签的属
   } else if(layEvent === 'edit'){ //编辑
     //do something
     
-    // <span style="color: #FF5722;">同步更新缓存对应的值</span>
+    // <span class="layui-font-red">同步更新缓存对应的值</span>
     // 该方法仅为前端层面的临时更新，在实际业务中需提交后端请求完成真实的数据更新。
     obj.update({
+      username: '123',
+      title: 'abc'
+    }); 
+    // 若需更新其他包含自定义模板并可能存在关联的列视图，可在第二个参数传入 true
+    obj.update({
       username: '123'
-      ,title: 'abc'
-    });
+    }, true); // 注：参数二传入 true 功能为 v2.7.4 新增
  
     // 当发送后端请求成功后，可再通过 reloadData 方法完成数据重载
     /*
@@ -2198,11 +2202,11 @@ window.global = {
 </div>
 <div class="site-mobile-shade"></div>
  
-<script src="../../layui/v/2.7.3/layui.js"></script>
+<script src="../../layui/v/2.7.4/layui.js"></script>
 <script>
 layui.config({
   base: '//res.layuion.com/static/modules/'
-  ,version: '1657082865298'
+  ,version: '1657470539914'
 }).use('global');
 </script>
  

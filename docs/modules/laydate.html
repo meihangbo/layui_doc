@@ -9,7 +9,7 @@
   <script>
   ;!function(){self!==parent&&(location.href="//www.baidu.com/")}();
   </script>
-  <link href="../../layui/v/2.7.3/css/layui.css" rel="stylesheet">
+  <link href="../../layui/v/2.7.4/css/layui.css" rel="stylesheet">
   <link href="../../static/css/global.css" rel="stylesheet">
 </head>
 <body>
@@ -89,10 +89,11 @@
     <li><a href="#onready">组件初始打开的回调</a></li>
     <li><a href="#onchange">日期被切换的回调</a></li>
     <li><a href="#ondone">选择完毕的回调</a></li>
+    <li><a href="#onclose">面板被关闭的回调</a></li>
   </ul>
   <li><a href="#hint"><cite>弹出提示</cite></a></li>
   <li><a href="#path"><cite>配置基础路径</cite></a></li>
-  <li><a href="#other"><cite>其它方法</cite></a></li>
+  <li><a href="#other"><cite>更多 API</cite></a></li>
 </ul>
 <div class="layui-container layui-row">
   <div class="layui-col-md3">
@@ -1258,6 +1259,24 @@ laydate.render({
 });
       </pre>
     </div>
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend><a name="onclose">组件被关闭的回调</a></legend>
+    </fieldset>
+    <div class="site-text">
+      <p>组件面板被完全关闭（移除）后触发</p>
+      <pre class="layui-code">
+laydate.render({
+  elem: '#test'
+  ,done: function(value, date, endDate){ // 选择完毕的回调
+    // …
+  }
+  ,close: function(that){ // 关闭后的回调
+    // …
+  }
+});
+      </pre>
+      <span class="layui-font-red">注：v2.7.4 新增</span>
+    </div>
     
     <fieldset class="layui-elem-field layui-field-title site-title">
       <legend><a name="hint">弹出控件提示</a></legend>
@@ -1322,6 +1341,13 @@ var LAYUI_GLOBAL = {
             <br>var endDate2 = laydate.getEndDate(2, 2080); //得到29
           </td>
         </tr>
+        <!--<tr>
+          <td>laydate.close(id)</td>
+          <td>
+            关闭日期面板。若 id 参数不填，则关闭当前打开的日期面板；若传入 id 参数，则关闭该 id 对应的日期面板。
+            <br><span class="layui-font-red">注：v2.7.4 新增</span>
+          </td>
+        </tr>-->
       </tbody>
     </table>
     
@@ -1371,11 +1397,11 @@ window.global = {
 </div>
 <div class="site-mobile-shade"></div>
  
-<script src="../../layui/v/2.7.3/layui.js"></script>
+<script src="../../layui/v/2.7.4/layui.js"></script>
 <script>
 layui.config({
   base: '//res.layuion.com/static/modules/'
-  ,version: '1657082865298'
+  ,version: '1657470539914'
 }).use('global');
 </script>
  
