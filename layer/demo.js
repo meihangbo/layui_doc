@@ -2,7 +2,7 @@
 /*! layer demo */
 
 ;!function(){
-
+ 
 
 var gather = {
   htdy: $('html, body')
@@ -13,28 +13,24 @@ layer.config({
   //extend: 'moon/style.css'
 });
 
-//在线调试
+//在线测试
 var debug = $('#L_layerDebug'), popDebug = function(){
   var othis = $(this), top = $(window).scrollTop();
   layer.open({
     type: 1
-    ,title: '在线调试'
+    ,title: '在线测试'
     ,moveType: 1
     ,id: 'Lay_layer_debug'
     ,content: $('.runtest')
     ,shade: false
     ,resize: false
     ,fixed: false
+    ,anim: 5
     ,maxWidth: '100%'
     ,offset: [
       (othis.offset().top - top + 50) + 'px'
-      ,(othis.offset().left - 300) + 'px'
+      ,(othis.offset().left - 570) + 'px'
     ]
-    ,success: function(layero, index){
-      layer.style(index, {
-        marginLeft: -210
-      });
-    }
   });
   testmain.focus();
 };
@@ -72,91 +68,71 @@ $('#chutiyan>a').on('click', function(){
         var index = layer.alert('Hi，你好！ 点击确认更换图标', {
           icon: icon,
           shadeClose: true,
-          title: icon === -1 ? '初体验' : ('icon: '+ icon)
+          title: icon === -1 ? 'Alert' : ('icon: '+ icon)
         }, changeIcon);
         if(8 === ++icon) layer.close(index);
       }());
     break;
     case 1:
-      var icon = 0;
-      (function changeIcon1(){
-        return;
-        var index = layer.alert('点击确认更换图标', {
-          icon: icon,
-          shadeClose: true,
-          skin: 'layer-ext-moon',
-          title: icon === -1 ? '第三方扩展皮肤' : 'icon：'+icon
-        }, changeIcon1);
-        if(9 === ++icon) {
-          layer.confirm('怎么样，是否很喜欢该皮肤，去下载？', {
-            skin: 'layer-ext-moon'
-          }, function(index, layero){
-            layero.find('.layui-layer-btn0').attr({
-              href: 'http://layer.layui.com/skin.html',
-              target: '_blank'
-            });
-            layer.close(index);
-          });
-        };
-      }());
+      
     break;
-
+    
     case 2:
       //询问框
-      layer.confirm('您是如何看待前端开发？', {
-        btn: ['重要','奇葩'] //按钮
+      layer.confirm('一个询问层的测试示例？', {
+        btn: ['确定','关闭'] //按钮
       }, function(){
-        layer.msg('的确很重要', {icon: 1});
+        layer.msg('第一个回调', {icon: 1});
       }, function(){
-        layer.msg('也可以这样', {
+        layer.msg('第二个回调', {
           time: 20000, //20s后自动关闭
           btn: ['明白了', '知道了']
         });
       });
     break;
-
+    
     case 3:
       //提示层
       layer.msg('一段提示信息');
     break;
-
+    
     case 4:
       //墨绿深蓝风
       layer.alert('墨绿风格，点击确认看深蓝', {
         skin: 'layui-layer-molv' //样式类名
         ,closeBtn: 0
       }, function(){
-        layer.alert('偶吧深蓝style', {
+        layer.alert('深蓝', {
           skin: 'layui-layer-lan'
           ,closeBtn: 0
           ,anim: 4 //动画类型
         });
       });
     break;
-
+   
     case 5:
       //捕获页
       layer.open({
         type: 1,
         shade: false,
-        title: false, //不显示标题
+        //title: false, //不显示标题
         content: $('.layer_notice'), //捕获的元素
-        cancel: function(){
-          layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', {time: 5000, icon:6});
+        end: function(){
+          layer.msg('关闭的回调', {icon:6});
         }
       });
     break;
-
+    
     case 6:
       //页面层
       layer.open({
         type: 1,
         skin: 'layui-layer-rim', //加上边框
         area: ['420px', '240px'], //宽高
-        content: '<div style="padding: 10px;">任意html内容</div>'
+        content: '<div style="padding: 10px;">任意 HTML 内容</div>'
       });
     break;
-
+    
     case 7:
       layer.open({
         type: 1,
@@ -165,26 +141,26 @@ $('#chutiyan>a').on('click', function(){
         area: '350px',
         anim: 2,
         shadeClose: true,
-        content: '<div style="padding:20px;">即传入skin:"样式名"，然后你就可以为所欲为了。<br>你怎么样给她整容都行<br><br><br>我是华丽的酱油==。</div>'
+        content: '<div style="padding:20px;">即设定参数 skin: "样式名"<br>然后在 css 中对层样式进行自定义<br><br><br>测试内容</div>'
       });
     break;
-
+    
     case 8:
-      layer.tips('Hi，我是tips', this);
+      layer.tips('一个 tips', this);
     break;
-
+    
     case 9:
       //iframe层
       layer.open({
         type: 2,
-        title: 'layer mobile页',
+        title: 'iframe test',
         shadeClose: true,
         shade: 0.8,
         area: ['380px', '90%'],
-        content: 'mobile/' //iframe的url
-      });
+        content: 'test/1.html' //iframe的url
+      }); 
     break;
-
+    
     case 10:
       //iframe窗
       layer.open({
@@ -194,10 +170,10 @@ $('#chutiyan>a').on('click', function(){
         shade: false,
         maxmin: true, //开启最大化最小化按钮
         area: ['893px', '600px'],
-        content: 'https://www.baidu.com/'
+        content: 'https://dev.layuion.com/jump/alyhot/'
       });
     break;
-
+    
     case 11:
       var ii = layer.load(0, {shade: false});
       setTimeout(function(){
@@ -213,17 +189,17 @@ $('#chutiyan>a').on('click', function(){
       }, 3000);
     break;
     case 13:
-      layer.tips('我是另外一个tips，只不过我长得跟之前那位稍有些不一样。', this, {
+      layer.tips('一个 tips，<br>自定义了弹出方向以及背景色', this, {
         tips: [1, '#3595CC'],
         time: 4000
       });
     break;
     case 14:
-      layer.prompt({title: '输入任何口令，并确认', formType: 1}, function(pass, index){
+      layer.prompt({title: '任意测试口令，并确认', formType: 1}, function(pass, index){
         layer.close(index);
         layer.prompt({title: '随便写点啥，并确认', formType: 2}, function(text, index){
           layer.close(index);
-          layer.msg('演示完毕！您的口令：'+ pass +'<br>您最后写下了：'+text);
+          alert('演示完毕！您填写的测试口令为：'+ pass +'<br>您最后写下了：'+ text);
         });
       });
     break;
@@ -231,14 +207,14 @@ $('#chutiyan>a').on('click', function(){
       layer.tab({
         area: ['600px', '300px'],
         tab: [{
-          title: '无题',
-          content: '<div style="padding:20px; line-height:30px; text-align:center">欢迎体验layer.tab<br>此时此刻不禁让人吟诗一首：<br>一入前端深似海<br>从此妹纸是浮云<br>以下省略七个字<br>。。。。。。。<br>——贤心</div>'
+          title: 'Title1', 
+          content: '<div style="padding:20px; line-height:30px; text-align:center">一个自带简单 tab 的层</div>'
         }, {
-          title: 'TAB2',
-          content: '<div style="padding:20px;">TAB2该说些啥</div>'
+          title: 'Title2', 
+          content: '<div style="padding:20px;">tabs content 2</div>'
         }, {
-          title: 'TAB3',
-          content: '<div style="padding:20px;">有一种坚持叫：layer</div>'
+          title: 'Title3', 
+          content: '<div style="padding:20px;">tabs content 3</div>'
         }]
       });
     break;
@@ -276,12 +252,12 @@ $('#chutiyan>a').on('click', function(){
      //layer.msg('Hi!');
     break;
   }
-
+  
   //定位到对应的
   var p = gather.demo1.find('p').eq(index);
   var top = p.parent().position().top;
   var ol = gather.demo1.find('.layui-code-ol');
-
+  
   gather.demo1.find('.layui-code-ol').animate({
     scrollTop: ol.scrollTop() + top
   }, 0);
@@ -301,31 +277,31 @@ $('.layer-demolist').on('click', function(){
     break;
     case 1:
       //信息框-例2
-      layer.msg('你确定你很帅么？', {
+      layer.msg('一个询问测试？', {
         time: 0 //不自动关闭
-        ,btn: ['必须啊', '丑到爆']
+        ,btn: ['确定', '关闭']
         ,yes: function(index){
           layer.close(index);
-          layer.msg('雅蠛蝶 O.o', {
+          layer.msg('自定义按钮', {
             icon: 6
             ,time: 0
-            ,btn: ['嗷','嗷','嗷']
+            ,btn: ['按钮-1','按钮-2','按钮-3']
           });
         }
       });
     break;
     case 2:
       //信息框-例3
-      layer.msg('这是最常用的吧');
+      layer.msg('常用提示');
     break;
     case 3:
       //信息框-例4
-      layer.msg('不开心。。', {icon: 5});
+      layer.msg('常用提示', {icon: 5});
 
     break;
     case 4:
       //信息框-例5
-      layer.msg('玩命卖萌中', function(){
+      layer.msg('常用提示', function(){
       //关闭后的操作
       });
     break;
@@ -337,7 +313,7 @@ $('.layer-demolist').on('click', function(){
         closeBtn: 0,
         shadeClose: true,
         skin: 'yourclass',
-        content: '自定义HTML内容'
+        content: '自定义 HTML 内容'
       });
     break;
     case 6:
@@ -351,7 +327,7 @@ $('.layer-demolist').on('click', function(){
         shadeClose: true,
         content: $('#tong'),
         success: function(){
-          layer.msg('弹出一个隐藏的碎片，里面包含了图片和链接', {
+          layer.msg('如果只是单纯弹出图片，一个建议用 layer.photos 层', {
             offset: '15px',
             icon: 0
           });
@@ -387,7 +363,7 @@ $('.layer-demolist').on('click', function(){
         type: 2,
         area: ['360px', '500px'],
         skin: 'layui-layer-rim', //加上边框
-        content: ['mobile/', 'no']
+        content: ['test/1.html', 'no']
       });
     break;
     case 10:
@@ -423,7 +399,7 @@ $('.layer-demolist').on('click', function(){
     break;
     case 14:
       //打酱油
-      layer.msg('尼玛，打个酱油', {icon: 4});
+      layer.msg('提示信息', {icon: 4});
     break;
     case 15:
       layer.tips('上', this, {
@@ -439,7 +415,7 @@ $('.layer-demolist').on('click', function(){
       });
     break;
     case 18:
-      layer.tips('在很久很久以前，在很久很久以前，在很久很久以前……', this, {
+      layer.tips('左', this, {
         tips: [4, '#78BA32']
       });
     break;
@@ -464,7 +440,7 @@ $('.layer-demolist').on('click', function(){
       //弹出即全屏
       var index = layer.open({
         type: 2,
-        content: 'https://fly.layui.com/jump/alyhot/',
+        content: 'https://dev.layuion.com/jump/alyhot/',
         area: ['320px', '195px'],
         maxmin: true
       });
@@ -472,7 +448,7 @@ $('.layer-demolist').on('click', function(){
     break;
     case 23:
       //正上方
-      layer.msg('灵活运用offset', {
+      layer.msg('灵活运用 offset', {
         offset: 't',
         anim: 6
       });
@@ -481,36 +457,15 @@ $('.layer-demolist').on('click', function(){
       layer.msg('Hi!');
     break;
   }
-
+  
   //定位到对应的
   var p = gather.demo2.find('p').eq(index);
   var top = p.parent().position().top;
   var ol = gather.demo2.find('.layui-code-ol');
-
+  
   gather.demo2.find('.layui-code-ol').animate({
     scrollTop: ol.scrollTop() + top
   }, 0);
-});
-
-//异步请求
-gather.downs = $('#downs');
-gather.downs [0] && function(){
-
-  //获取下载数
-  /*$.get('//fly.layui.com/cross/handle?id=1&type=find', function(res){
-    gather.downs.html(res.number);
-  }, 'jsonp');*/
-
-
-  //获取并记录关注次数
-  /*$.get('//fly.layui.com/cross/handle?id=3', function(res){
-    $('#sees').html(res.number);
-  }, 'jsonp');*/
-}();
-
-//记录下载
-$('.layer_down').on('click',function(){
-  /*$.get('//fly.layui.com/cross/handle?id=1', function(){},'jsonp');*/
 });
 
 //API页
@@ -527,7 +482,7 @@ gather.apiRun = $('.layer-api-run');
     if(i.hasClass('icon-shousuo')){
       i.addClass('icon-zhankai').removeClass('icon-shousuo');
       othis.next().hide();
-
+      
     } else {
       i.addClass('icon-shousuo').removeClass('icon-zhankai');
       othis.next().show();
@@ -564,186 +519,25 @@ gather.apiRun = $('.layer-api-run');
   });
 }());
 
-//ie6
-if(!-[1,] && !window.XMLHttpRequest){
-  layer.ready(function(){
-    layer.alert('如果您是用ietest的ie6模式，发现弹出背景一片黑色时，请不用惊慌，这并非layer未作兼容，而是你当前版本的ietest所模拟的ie6环境未对滤镜做支持，标准ie6将不会有此问题，所以请您不要担心。');
-  });
-}
-
-gather.getDate = function(time){
-  return new Date(parseInt(time)).toLocaleString()
+gather.getDate = function(time){ 
+  return new Date(parseInt(time)).toLocaleString() 
 };
-
-
-window.paysentsin = function(){
-  return layer.photos({
-    photos: {
-      "title": ""
-      ,"data": [
-        {
-          "alt": "layer友情打赏",
-          "pid": 666, //图片id
-          "src": "/images/pay/layer.jpg", //原图地址
-          "thumb": "" //缩略图地址
-        }
-      ]
-    }
-  });
-};
-
-
-//公告层
-layer.ready(function(){
-  var local = layui.data('layui');
-
-
-  //阿里云活动
-  var notAliyun = local.notice_aliyun && new Date().getTime() - local.notice_aliyun < 1000*60*30;
-  if(1 && local.notive_aliyun){
-    layui.data('layui', {
-      key: 'notive_aliyun'
-      ,remove: true
-    });
-  }
-  if(0 && !notAliyun){
-    layer.alert('', {
-      title: '阿里云新春限时大特惠'
-      ,content: ['<div style="text-align: center">'
-        //,'<p>2核/8G/5M，三年仅需 <span style="color: #FF5722;">1399元</span></p>'
-        ,'<p>三年仅 <span style="color: #FF5722;">203元</span> 购买阿里云服务器</p>'
-        ,'<p style="color: #999;">新春之计 万象更新</p>'
-      ,'</div>'].join('')
-      ,btn: ['赶紧去围观', '等会看']
-      ,btnAlign: 'c'
-      ,success: function(layero, index){
-        var btn = layero.find('.layui-layer-btn');
-        btn.find('.layui-layer-btn0').attr({
-          href: 'https://fly.layui.com/jump/alyhot/'
-          ,target: '_blank'
-        });
-      }
-      ,end: function(){
-        layui.data('layui', {
-          key: 'notice_aliyun'
-          ,value: new Date().getTime()
-        });
-      }
-    });
-    return;
-  }
-
-
-  //Tips
-  var notNavTips = local.notice_navtips && new Date().getTime() - local.notice_navtips < 1000*60*30;
-  var elemNavTips = $('#layer-spm-event-parter');
-  if(elemNavTips[0] && !notNavTips && 0){
-    var tipsIndex = layer.tips(
-      ['<a href="https://fly.layui.com/jump/txyhot/" target="_blank" id="layer-spm-event-parter-tips" style="display: block; line-height: 30px; padding: 10px; text-align: center; font-size: 14px; background-color: #BE9241; background-image1: linear-gradient(to right,#79693F,#79693F,#4E4632,#302E2A); color: #fff;">'
-        ,'<p>腾讯云产品限时秒杀</p>'
-        ,'<p style="">爆款服务器超低价</p>'
-      ,'</a>'].join('')
-      ,'#layer-spm-event-parter'
-      ,{
-        tips: [3, '#BE9241']
-        ,maxWidth: 320
-        ,time: 0
-        ,anim: 2
-        ,tipeMore: true
-        ,success: function(layero, index){
-          layero.find('.layui-layer-content').css({
-            'padding': 0
-          });
-          layero.find('a').on('click', function(){
-            elemNavTips.trigger('click');
-          });
-
-          //隐藏小箭头
-          var tipsG = layero.find('.layui-layer-TipsG');
-          if(tipsG.css('left') !== '5px'){
-            tipsG.hide();
-          }
-
-          //移动端样式
-          if(elemNavTips.parent().css('display') === 'none'){
-            layero.css({
-              left: '50%'
-              ,top: '80px'
-              ,'margin-left': '-106px'
-            });
-            tipsG.hide();
-          }
-        }
-      }
-    )
-
-    elemNavTips.on('click', function(){
-      layui.data('layui', {
-        key: 'notice_navtips'
-        ,value: new Date().getTime()
-      });
-      layer.close(tipsIndex);
-    });
-  }
-
-  //layuiAdmin
-  var notLayuiAdmin = local.notice_layuiAdmin && new Date().getTime() - local.notice_layuiAdmin < 1000*60*60*24*3
-
-  if(!notLayuiAdmin && false){
-    layer.open({
-      type: 1
-      ,title: 'layui 官方通用后台管理模板'
-      ,closeBtn: false
-      ,area: ['300px', '280px']
-      ,shade: false
-      //,offset: 'lb'
-      ,id: 'LAY_Notice' //设定一个id，防止重复弹出
-      ,btn: ['朕要体验', '朕没兴趣']
-      ,btnAlign: 'c'
-      ,moveType: 1 //拖拽模式，0或者1
-      ,resize: false
-      ,content: ['<div style="padding: 15px; text-align: center; background-color: #e2e2e2;">'
-        ,'<a href="https://www.layui.com/admin/std/dist/views/" target="_blank"><img src="/upload/2018_5/168_1527691799254_76462.jpg" alt="layuiAdmin" style="width: 100%; height:149.78px;"></a>'
-      ,'</div>'].join('')
-      ,success: function(layero, index){
-        var btn = layero.find('.layui-layer-btn');
-        btn.find('.layui-layer-btn0').attr({
-          href: 'https://www.layui.com/admin/std/dist/views/'
-          ,target: '_blank'
-        });
-
-        layero.find('a').on('click', function(){
-          layer.close(index);
-        });
-      }
-      ,end: function(){
-        layui.data('layui', {
-          key: 'notice_layuiAdmin'
-          ,value: new Date().getTime()
-        });
-      }
-    });
-  }
-
-});
 
 
 layui.use(['util', 'code', 'element'], function(){
-  var util = layui.util, layim = layui.layim;
-
+  var util = layui.util;
+  
   //固定块
   util.fixbar({
     bar1: false
     ,click: function(type){
-      if(type === 'bar1'){
-        location.href = 'http://fly.layui.com/';
-      }
+      
     }
   });
-
+  
   //代码修饰器
   layui.code();
-
+  
 });
-
+  
 }();

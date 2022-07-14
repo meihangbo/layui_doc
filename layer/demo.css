@@ -1,4 +1,6 @@
-/*! layer官方演示页面样式 */
+/** 
+ * layer demo
+ */
 
 /* 页面公共 */
 html,body{padding:0;}
@@ -11,7 +13,7 @@ i{ font-family:Bookman Old Style;}
 .clear, .layer_first{zoom:1; clear:both;}
 .hide{display:none;}
 .area_zero, .demotab li i{position:absolute; width:0; height:0; border-style:dashed; border-color:transparent; overflow:hidden;}
-.box{ width:1000px; position:relative; margin:0 auto;}
+.box{width: 960px; position:relative; margin:0 auto;}
 pre code{font-family:'\5FAE\8F6F\96C5\9ED1';}
 .inline, .extimgs img{display:inline-block; *display:inline; *zoom:1; vertical-align:top;}
 .btns{display:inline-block; vertical-align:top; margin:0 5px 10px 0; height:36px; line-height:36px; border-radius:3px; padding:0 30px; background-color:#FF4351; color:#fff; border:none;}
@@ -23,15 +25,15 @@ pre code{font-family:'\5FAE\8F6F\96C5\9ED1';}
 .clearfix{ clear:both; zoom:1;}
 .clearfix:after{content:'\20'; clear:both; zoom:1; display:block; height:0;}
 
-.layui-main{width: 1000px;}
+.layui-main{width: 960px;}
 
 /* 页头 */
 .layer_banner{height:190px; background:#393D49; }
-.layer_banner span.ie6PNG{ position:absolute; width:912px; height:79px; background:url(images/banner.png) no-repeat; top:30px;}.layer_banner h1{display:none;}
+.layer_banner span.ie6PNG{ position:absolute; width:912px; height:79px; background:url(https://layuion.com/layer/images/banner.png) no-repeat; top:30px;}.layer_banner h1{display:none;}
 .layer_banner em{ position:absolute; bottom:30px; right:0; color:#fff;}.layer_banner em a{color:#fff;}
 
 /* 导航 */
-.layer_nav{ height: 51px; line-height: 51px; background-color: #23A1FF;} 
+.layer_nav{ height: 52px; line-height: 52px; background-color: #23A1FF;} 
 .layer_nav .box{padding-left:0;}
 .layer_nav a{position:relative; display: inline-block; *display:inline; *zoom:1; vertical-align:top; margin: 0 40px; color:#fff; font-size: 16px; padding: 0 15px;}
 .layer_nav a:hover{color:#F5F5F5;}
@@ -45,16 +47,12 @@ pre code{font-family:'\5FAE\8F6F\96C5\9ED1';}
 
 /* 首屏 */
 .layer-main{padding-top:20px;}
-.layer_notice{float:left; height:75px; width:330px;  overflow:hidden;  background:#5FB878; padding:10px;}
-.layer_notice a{color:#fff;}
-.layer_notice li{ line-height:25px;}
-.layer_ico{ background:url(images/layer_ico.png) no-repeat;}
-.layer_download{ height: 75px; width: 625px; float:right; margin-left: 0; _display:inline; background:#ECF0F1; padding:10px; position:relative;}
-.layer_download li{ line-height:25px; color:#333;}
-.layer_download .layer_yuan{position:absolute; width:53px; height:72px; right:240px; top:10px; background-position:-1px -4px; }
-.layer_download .layer_down{ position:absolute; width:197px; height: 51px; line-height: 51px; /*background:url(images/download.png?v=1);*/ background-color: #5FB878; right:18px; top:15px; font-size: 18px; color: rgba(255,255,255,.8);}
-.layer_download .layer_downs{ position:absolute; right:18px; bottom: 5px; width:197px; height:20px; line-height:20px; overflow:hidden; color:#373737; font-size:12px;} .layer_downs em{ font-family:Verdana;}
+.layer_download{position: relative; height: 52px; padding: 16px; background: #ECF0F1;}
+.layer_download li{line-height: 30px; color: #333;}
+.layer_download li .layui-btn{margin-bottom: 8px;}
+.layer_download .layer_down{position: absolute; padding: 0 16px; height: 52px; line-height: 52px; background-color: #5FB878; right: 16px; top: 16px; font-size: 18px; color: rgba(255,255,255,.8);}
 .layer_down:hover{opacity:0.9;}
+.layer_down cite{font-size: 13px;}
 .layer_download .padding{margin-top: 5px; padding-left:70px; line-height:20px;}
 .layer_download .github{ padding-left:57px;}
 .github a{color:#005B8C; font-family: Courier New;}
@@ -78,7 +76,7 @@ body .layer-area a{margin: 0 6px 10px 0;}
 .demolist{position:relative; margin-top:0; font-size:0;  text-align:center;}
 .demolist li{_width:110px; margin:0 0 0 20px; display:inline-block; *display:inline; *zoom:1; vertical-align:top; font-size:14px;}
 .demolist li:first-child{margin-left:0px;}
-.demolist li div{*padding:0 10px; height: 35px; line-height: 35px; border-radius: 2px; background-color: #1AA094; color:#fff;}
+.demolist li div{*padding:0 10px; height: 38px; line-height: 38px; margin-bottom: 7px; border-radius: 2px; background-color: #393D49; color:#fff;}
 .demolist li a{margin:11px 0; padding:0 25px; float:none;}
 body .yourclass{width:420px; height:240px; background-color:#81BA25; box-shadow: none; color:#fff;}
 body .yourclass .layui-layer-content{ padding:20px;}
